@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>Chatty Room</title>
+    <link href='style.css' rel="stylesheet">
+</head>
+<body>
+	<h3 style="font-family:verdana;">Chatty Room</h3>
+	<div class="div1">
+		<input id="msg" type="text" style="border-top:none;border-left:none;border-right:none;" placeholder="Say something here.." class="div2">
+		<div onclick="f1()" class="div3"><p style="font-family:verdana;font-size:18px;color:white;cursor:pointer;">Send</p></div>
+		<div class="div4">
+			<div style="position:absolute;top:10px;" id="chat"></div>
+		</div>
+	</div>
+    <div class="div5">
+    	<p style="text-align:center;font-family:verdana;font-size:13px;">Hello Your Name is:</p>
+    	<input onkeyup="f2()" type="text" id="1"  value="Anjali Jain" style="border-bottom:1px solid black;height:20px;width:170px;position:absolute;left:23px;top:35px;border-top:none;border-left:none;border-right:none;">
+    	<p  style="font-family:verdana;font-size:10px;position:absolute;top:60px;left:33%">Click to edit..</p>
+    	<div  style="position:absolute;top:100px;background-color:lightblue;height:40px;width:220px;"><p id="name">Anjali Jain</p></div>
+    </div>
+
+</body>
+<script>
+
+    function f2()
+    {
+     document.getElementById("name").innerHTML=document.getElementById("1").value;
+    }
+
+    function f1()
+    {
+            var para=document.createElement('p');
+            var text=document.createTextNode(document.getElementById("1").value + ":" + document.getElementById("msg").value);
+            para.className+="divleft";
+            para.appendChild(text);
+
+            var element=document.getElementById("chat");
+            element.insertBefore(para,element.childNodes[0]);
+
+            document.getElementById("msg").value="";
+    }
+
+</script>
+</html>
